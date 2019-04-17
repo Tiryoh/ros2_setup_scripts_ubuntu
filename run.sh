@@ -18,6 +18,7 @@ elif [ "$(lsb_release -cs)" = "xenial" ]; then
 	sudo apt install -y python3-pip
 	sudo pip3 install argcomplete
 fi
+sudo apt install -y python3-colcon-common-extensions
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 
