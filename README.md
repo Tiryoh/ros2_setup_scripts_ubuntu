@@ -1,5 +1,7 @@
 # ros2_setup_scripts_ubuntu
 
+[![CircleCI](https://circleci.com/gh/Tiryoh/ros2_setup_scripts_ubuntu.svg?style=svg)](https://circleci.com/gh/Tiryoh/ros2_setup_scripts_ubuntu)
+
 unofficial ROS2 install script for Ubuntu
 
 Acess https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/ to get the updated information.
