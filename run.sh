@@ -27,3 +27,4 @@ set +u
 source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash
 
 echo "success installing ROS2 $CHOOSE_ROS_DISTRO"
+echo "Run 'source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash'"
