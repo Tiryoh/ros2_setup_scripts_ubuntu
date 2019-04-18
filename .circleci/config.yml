@@ -2,12 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-    - image: tiryoh/ubuntu:bionic
+    - image: tiryoh/ubuntu:dev-bionic
     steps:
     - checkout
     - run:
-        name: Test
+        name: install
         command: ./run.sh
+    - run:
+        name: test
+        command: source ./.circleci/test.sh
 workflows:
   version: 2
   workflow:
