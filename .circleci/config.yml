@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: tiryoh/ubuntu:bionic
+    steps:
+    - checkout
+    - run:
+        name: Test
+        command: ./run.sh
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
