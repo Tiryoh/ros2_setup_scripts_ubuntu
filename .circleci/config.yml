@@ -11,8 +11,19 @@ jobs:
     - run:
         name: test
         command: source ./.circleci/test.sh
+
 workflows:
   version: 2
-  workflow:
+  commit-workflow:
     jobs:
-    - build
+      - build
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 1 * * 1"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
