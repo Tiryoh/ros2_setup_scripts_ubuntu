@@ -6,7 +6,7 @@ unofficial ROS2 install script for Ubuntu
 
 Acess https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/ to get the updated information.
 
-after downloading this repository, just run:
+After downloading this repository, just run:
 
 ```sh
 ./run.sh
@@ -14,4 +14,17 @@ after downloading this repository, just run:
 
 ## LICENSE
 
-This repository is released under the GNU General Public License v3.0 because it includes [ros-infrastructure/index.ros.org](https://github.com/ros-infrastructure/index.ros.org) released under the GNU General Public License v3.0.
+(C) 2019 Tiryoh <tiryoh@gmail.com>
+
+This repository is released under the Apache License 2.0, see [LICENSE](./LICENSE).  
+Unless attributed otherwise, everything in this repository is under the Apache License 2.0.
+
+### Acknowledgements
+
+`run.sh` is based on https://index.ros.org/doc/ros2/Installation/Crystal/Linux-Install-Debians/
+by Open Robotics, licensed under CC-BY-4.0.  
+
+`tutorial.sh` is based on https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/
+by Open Robotics, licensed under CC-BY-4.0.  
+
+source: https://github.com/ros2/ros2_documentation

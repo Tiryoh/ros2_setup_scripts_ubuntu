@@ -2,6 +2,8 @@
 set -eu
 
 # REF: https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/
+# by Open Robotics, licensed under CC-BY-4.0
+# source: https://github.com/ros2/ros2_documentation
 
 CHOOSE_ROS_DISTRO=crystal # or bouncy or ardent
 INSTALL_PACKAGE=desktop # or ros-base
