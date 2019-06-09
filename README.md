@@ -6,8 +6,31 @@ unofficial ROS2 install script for Ubuntu
 
 Acess https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/ to get the updated information.
 
+## QuickStart
+
 After downloading this repository, just run:
 
+```sh
+./run.sh
+```
+
+## Usage
+
+By default, `run.sh` will install `ros-crystal-desktop`.  
+If you need to install another package, edit line8-9 in `run.sh`.
+
+```sh
+CHOOSE_ROS_DISTRO=crystal # or dashing or bouncy or ardent
+INSTALL_PACKAGE=desktop # or ros-base
+```
+
+Editing sample:
+```sh
+CHOOSE_ROS_DISTRO=dashing # or dashing or bouncy or ardent
+INSTALL_PACKAGE=ros-base # or ros-base
+```
+
+After editing, run `run.sh` to install the packages.
 ```sh
 ./run.sh
 ```
