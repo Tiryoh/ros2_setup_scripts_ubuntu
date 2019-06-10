@@ -10,8 +10,7 @@ INSTALL_PACKAGE=desktop # or ros-base
 
 sudo apt update
 sudo apt install -y curl gnupg2 lsb-release
-curl -Ls http://repo.ros2.org/repos.key | sudo apt-key add -
-curl -Ls http://packages.ros.org/ros.key | sudo apt-key add -
+curl -Ls https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
 sudo apt update
 sudo apt install -y ros-$CHOOSE_ROS_DISTRO-$INSTALL_PACKAGE
