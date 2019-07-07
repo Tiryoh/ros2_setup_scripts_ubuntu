@@ -3,7 +3,7 @@ set -e
 
 mkdir -p ~/ros2_example_ws/src
 cd ~/ros2_example_ws
-git clone -b crystal https://github.com/ros2/examples src/examples
+git clone -b dashing https://github.com/ros2/examples src/examples
 source /opt/ros/dashing/setup.bash
 colcon build --symlink-install
 colcon test
