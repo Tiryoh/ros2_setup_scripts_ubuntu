@@ -5,7 +5,7 @@ set -eu
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-CHOOSE_ROS_DISTRO=crystal # or dashing or bouncy or ardent
+CHOOSE_ROS_DISTRO=dashing # or crystal or bouncy or ardent
 INSTALL_PACKAGE=desktop # or ros-base
 
 sudo apt update
