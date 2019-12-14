@@ -19,4 +19,7 @@ jobs:
           ROS_DISTRO: ${{ matrix.ros-distro }}
       - name: Run the test script
         run: |
+          sed -e 's/dashing/$ROS_DISTRO/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
+        env:
+          ROS_DISTRO: ${{ matrix.ros-distro }}
