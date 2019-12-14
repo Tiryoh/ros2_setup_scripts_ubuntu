@@ -1,14 +1,25 @@
 name: ROS2 install test
 on:
   schedule:
-    - cron:  '0 1 * * 1'
+    - cron: "0 1 * * 1"
 jobs:
   build:
     name: Ubuntu 18.04
     runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        ros-distro: [crystal, dashing, eloquent]
     steps:
       - uses: actions/checkout@master
       - name: Run the install script
-        run: ./run.sh
+        run: |
+          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=$ROS_DISTRO/g' -i run.sh
+          ./run.sh
+        env:
+          ROS_DISTRO: ${{ matrix.ros-distro }}
       - name: Run the test script
-        run: bash <(head -n -2 ./tutorial.sh)
+        run: |
+          sed -e 's/dashing/$ROS_DISTRO/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+        env:
+          ROS_DISTRO: ${{ matrix.ros-distro }}
