@@ -1,22 +1,46 @@
 version: 2
 jobs:
-  build:
+  crystal:
     docker:
-    - image: tiryoh/ubuntu:dev-bionic
+    - image: tiryoh/ubuntu:bionic-dev
     steps:
     - checkout
     - run:
         name: Install
-        command: ./run.sh
+        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=crystal/g' -i run.sh && ./run.sh
     - run:
         name: Test
-        command: source ./.circleci/test.sh
+        command: sed -e 's/dashing/crystal/g' -i tutorial.sh && bash <(head -n -2 ./tutorial.sh) && which ros2
+  dashing:
+    docker:
+    - image: tiryoh/ubuntu:bionic-dev
+    steps:
+    - checkout
+    - run:
+        name: Install
+        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=dashing/g' -i run.sh && ./run.sh
+    - run:
+        name: Test
+        command: sed -e 's/dashing/dashing/g' -i tutorial.sh && bash <(head -n -2 ./tutorial.sh) && which ros2
+  eloquent:
+    docker:
+    - image: tiryoh/ubuntu:bionic-dev
+    steps:
+    - checkout
+    - run:
+        name: Install
+        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=eloquent/g' -i run.sh && ./run.sh
+    - run:
+        name: Test
+        command: sed -e 's/eloquent/eloquent/g' -i tutorial.sh && bash <(head -n -2 ./tutorial.sh) && which ros2
 
 workflows:
   version: 2
   commit-workflow:
     jobs:
-      - build
+      - crystal
+      - dashing
+      - eloquent
   scheduled-workflow:
     triggers:
       - schedule:
@@ -26,4 +50,6 @@ workflows:
               only:
                 - master
     jobs:
-      - build
+      - crystal
+      - dashing
+      - eloquent
