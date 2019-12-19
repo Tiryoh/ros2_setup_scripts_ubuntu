@@ -20,13 +20,13 @@ By default, `run.sh` will install `ros-dashing-desktop`.
 If you need to install another package, edit line8-9 in `run.sh`.
 
 ```sh
-CHOOSE_ROS_DISTRO=dashing # or crystal or bouncy or ardent
+CHOOSE_ROS_DISTRO=dashing # or crystal or eloquent
 INSTALL_PACKAGE=desktop # or ros-base
 ```
 
 Editing sample:
 ```sh
-CHOOSE_ROS_DISTRO=crystal # or crystal or bouncy or ardent
+CHOOSE_ROS_DISTRO=crystal # or crystal or eloquent
 INSTALL_PACKAGE=ros-base # or ros-base
 ```
 
