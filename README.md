@@ -1,6 +1,7 @@
 # ros2_setup_scripts_ubuntu
 
-[![CircleCI](https://circleci.com/gh/Tiryoh/ros2_setup_scripts_ubuntu.svg?style=svg)](https://circleci.com/gh/Tiryoh/ros2_setup_scripts_ubuntu)
+[![CircleCI](https://circleci.com/gh/Tiryoh/ros2_setup_scripts_ubuntu/tree/master.svg?style=svg)](https://circleci.com/gh/Tiryoh/ros2_setup_scripts_ubuntu/tree/master)
+[![GitHub Actions](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/workflows/ROS2%20install%20test/badge.svg)](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/actions?query=workflow%3A%22ROS2+install+test%22)
 
 unofficial ROS2 install script for Ubuntu
 
