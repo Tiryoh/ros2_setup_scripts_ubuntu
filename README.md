@@ -5,11 +5,11 @@
 
 unofficial ROS2 install script for Ubuntu
 
-Acess https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/ to get the updated information.
+Access https://index.ros.org/doc/ros2/Installation/ to get the updated information.
 
 ## QuickStart
 
-After downloading this repository, just run:
+After downloading this repository, just run the following command.
 
 ```sh
 ./run.sh
@@ -25,20 +25,23 @@ CHOOSE_ROS_DISTRO=dashing # or crystal or eloquent
 INSTALL_PACKAGE=desktop # or ros-base
 ```
 
-Editing sample:
+For example, if you want to install ros-base package of ROS 2 Crystal,
+edit like the followings.
+
 ```sh
 CHOOSE_ROS_DISTRO=crystal # or crystal or eloquent
 INSTALL_PACKAGE=ros-base # or ros-base
 ```
 
 After editing, run `run.sh` to install the packages.
+
 ```sh
 ./run.sh
 ```
 
 ## LICENSE
 
-(C) 2019 Tiryoh
+(C) 2019-2020 Tiryoh
 
 This repository is released under the Apache License 2.0, see [LICENSE](./LICENSE).  
 Unless attributed otherwise, everything in this repository is under the Apache License 2.0.
