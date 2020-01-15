@@ -1,0 +1,32 @@
+style: github
+template: CHANGELOG.tpl.md
+info:
+  title: CHANGELOG
+  repository_url: https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
+options:
+  commits:
+    filters:
+      Type:
+        - feat
+        - fix
+        - docs
+        # - style
+        - refactor
+        - perf
+        # - test
+        # - chore
+  commit_groups:
+    title_maps:
+      feat: Features
+      fix: Bug Fixes
+      docs: Documentation Updates
+      refactor: Code Refactoring
+      perf: Performance Improvements
+  header:
+    pattern: "^(\\w*)\\:\\s(.*)$"
+    pattern_maps:
+      - Type
+      - Subject
+  notes:
+    keywords:
+      - BREAKING CHANGE
