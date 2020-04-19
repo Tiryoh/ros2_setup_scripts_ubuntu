@@ -1,16 +1,5 @@
 version: 2
 jobs:
-  crystal:
-    docker:
-    - image: tiryoh/ubuntu:bionic-dev
-    steps:
-    - checkout
-    - run:
-        name: Install
-        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=crystal/g' -i run.sh && ./run.sh
-    - run:
-        name: Test
-        command: sed -e 's/dashing/crystal/g' -i tutorial.sh && bash -c "$(head -n -2 ./tutorial.sh && echo 'which ros2')"
   dashing:
     docker:
     - image: tiryoh/ubuntu:bionic-dev
@@ -38,7 +27,6 @@ workflows:
   version: 2
   commit-workflow:
     jobs:
-      - crystal
       - dashing
       - eloquent
   scheduled-workflow:
@@ -50,6 +38,5 @@ workflows:
               only:
                 - master
     jobs:
-      - crystal
       - dashing
       - eloquent

@@ -17,7 +17,7 @@ on:
 
 jobs:
   skip:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
@@ -27,9 +27,9 @@ jobs:
     if: contains(github.event.head_commit.message, '[skip ci]') == false
     strategy:
       matrix:
-        ros-distro: [crystal, dashing, eloquent]
+        ros-distro: [dashing, eloquent]
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Run the install script
         run: |
           sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=$ROS_DISTRO/g' -i run.sh
