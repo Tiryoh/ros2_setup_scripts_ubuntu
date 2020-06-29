@@ -40,7 +40,7 @@ workflows:
     jobs:
       - dashing
       - eloquent
-      - focal
+      - foxy
   scheduled-workflow:
     triggers:
       - schedule:
@@ -52,3 +52,4 @@ workflows:
     jobs:
       - dashing
       - eloquent
+      - foxy
