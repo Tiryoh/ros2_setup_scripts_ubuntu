@@ -28,6 +28,9 @@ jobs:
     steps:
     - checkout
     - run:
+        name: Prepare Install
+        command: sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install keyboard-configuration
+    - run:
         name: Install
         command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=foxy/g' -i run.sh && ./run.sh
     - run:
