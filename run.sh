@@ -11,7 +11,7 @@ INSTALL_PACKAGE=desktop # or ros-base
 sudo apt update
 sudo apt install -y curl gnupg2 lsb-release
 curl -Ls https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo apt-key add -
-sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
 sudo apt update
 sudo apt install -y ros-$CHOOSE_ROS_DISTRO-$INSTALL_PACKAGE
 sudo apt install -y python3-argcomplete
