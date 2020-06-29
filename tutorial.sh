@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+ROS_DISTRO=dashing
+
 mkdir -p ~/ros2_example_ws/src
 cd ~/ros2_example_ws
-git clone -b dashing https://github.com/ros2/examples src/examples
-source /opt/ros/dashing/setup.bash
+git clone -b ${ROS_DISTRO} https://github.com/ros2/examples src/examples
+source /opt/ros/${ROS_DISTRO}/setup.bash
 #colcon build --symlink-install
 colcon build --symlink-install --parallel-workers 1 # build one package at once https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/4
 colcon test
