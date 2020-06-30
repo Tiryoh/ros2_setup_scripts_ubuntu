@@ -4,14 +4,16 @@ on:
     branches:
       - master
     paths:
-      - "**.sh"
-      - ".github/workflows/**"
+      - "run.sh"
+      - "tutorial.sh"
+      - ".github/workflows/main.yml"
   pull_request:
     branches:
       - master
     paths:
-      - "**.sh"
-      - ".github/workflows/**"
+      - "run.sh"
+      - "tutorial.sh"
+      - ".github/workflows/main.yml"
   schedule:
     - cron: "0 1 * * 1"
 
@@ -21,24 +23,44 @@ jobs:
     steps:
       - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
-  build:
-    name: Ubuntu 18.04
+  dashing:
     runs-on: ubuntu-18.04
     if: contains(github.event.head_commit.message, '[skip ci]') == false
-    strategy:
-      matrix:
-        ros-distro: [dashing, eloquent]
     steps:
       - uses: actions/checkout@v2
       - name: Run the install script
         run: |
-          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=$ROS_DISTRO/g' -i run.sh
+          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=dashing/g' -i run.sh
           ./run.sh
-        env:
-          ROS_DISTRO: ${{ matrix.ros-distro }}
       - name: Run the test script
         run: |
-          sed -e 's/dashing/$ROS_DISTRO/g' -i tutorial.sh
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
-        env:
-          ROS_DISTRO: ${{ matrix.ros-distro }}
+
+  eloquent:
+    runs-on: ubuntu-18.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=eloquent/g' -i run.sh
+          ./run.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  foxy:
+    runs-on: ubuntu-20.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=foxy/g' -i run.sh
+          ./run.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
