@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run the install script
         run: |
-          ./ros2-eloquent-ros-base-main.sh
+          ./ros2-foxy-ros-base-main.sh
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
@@ -93,7 +93,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run the install script
         run: |
-          ./ros2-eloquent-desktop-main.sh
+          ./ros2-foxy-desktop-main.sh
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
