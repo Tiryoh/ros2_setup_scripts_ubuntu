@@ -32,6 +32,7 @@ jobs:
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
+          sed -e 's/^\(git clone.*src\/examples\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
   dashing-desktop-main:
@@ -58,6 +59,7 @@ jobs:
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+          sed -e 's/^\(git clone.*src\/examples\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
   eloquent-desktop-main:
@@ -84,6 +86,7 @@ jobs:
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
+          sed -e 's/^\(git clone.*src\/examples\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
   foxy-desktop-main:
