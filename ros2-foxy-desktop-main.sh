@@ -5,7 +5,7 @@ set -eu
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-[[ "$(lsb_release -sc)" == "foxy" ]] || exit 1
+[[ "$(lsb_release -sc)" == "focal" ]] || exit 1
 
 CHOOSE_ROS_DISTRO=foxy
 INSTALL_PACKAGE=desktop
