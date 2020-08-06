@@ -1,0 +1,103 @@
+name: ROS2 installers test
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "ros2-**.sh"
+      - ".github/workflows/installers.yml"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "ros2-**.sh"
+      - ".github/workflows/installers.yml"
+  schedule:
+    - cron: "0 1 * * 1"
+
+jobs:
+  skip:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
+
+  dashing-ros-base-main:
+    runs-on: ubuntu-18.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          ./ros2-dashing-ros-base-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
+          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  dashing-desktop-main:
+    runs-on: ubuntu-18.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          ./ros2-dashing-desktop-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  eloquent-ros-base-main:
+    runs-on: ubuntu-18.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          ./ros2-eloquent-ros-base-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  eloquent-desktop-main:
+    runs-on: ubuntu-18.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          ./ros2-eloquent-desktop-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  foxy-ros-base-main:
+    runs-on: ubuntu-20.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          ./ros2-foxy-ros-base-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
+          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  foxy-desktop-main:
+    runs-on: ubuntu-20.04
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the install script
+        run: |
+          ./ros2-foxy-desktop-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
