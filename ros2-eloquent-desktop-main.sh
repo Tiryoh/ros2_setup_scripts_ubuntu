@@ -5,13 +5,14 @@ set -eu
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-[[ "$(lsb_release -sc)" == "bionic" ]] || exit 1
-
 CHOOSE_ROS_DISTRO=eloquent
 INSTALL_PACKAGE=desktop
 
 sudo apt-get update
-sudo apt-get install -y curl gnupg2 lsb-release
+sudo apt-get install -y curl gnupg2 lsb-release build-essential
+
+[[ "$(lsb_release -sc)" == "bionic" ]] || exit 1
+
 curl -Ls https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
 sudo apt-get update
