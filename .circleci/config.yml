@@ -11,17 +11,6 @@ jobs:
     - run:
         name: Test
         command: sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh &&  bash -c "$(head -n -2 ./tutorial.sh && echo 'which ros2')"
-  eloquent:
-    docker:
-    - image: tiryoh/ubuntu:bionic-dev
-    steps:
-    - checkout
-    - run:
-        name: Install
-        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=eloquent/g' -i run.sh && ./run.sh
-    - run:
-        name: Test
-        command: sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh &&  bash -c "$(head -n -2 ./tutorial.sh && echo 'which ros2')"
   foxy:
     docker:
     - image: tiryoh/ubuntu:focal-dev
@@ -42,7 +31,6 @@ workflows:
   commit-workflow:
     jobs:
       - dashing
-      - eloquent
       - foxy
   scheduled-workflow:
     triggers:
@@ -54,5 +42,4 @@ workflows:
                 - master
     jobs:
       - dashing
-      - eloquent
       - foxy
