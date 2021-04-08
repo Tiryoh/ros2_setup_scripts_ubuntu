@@ -17,19 +17,19 @@ After downloading this repository, just run the following command.
 
 ## Usage
 
-By default, `run.sh` will install `ros-dashing-desktop`.   
+By default, `run.sh` will install `ros-foxy-desktop`.   
 If you need to install another package, edit line8-9 in `run.sh`.
 
 ```sh
-CHOOSE_ROS_DISTRO=dashing # or foxy
+CHOOSE_ROS_DISTRO=foxy # or dashing, etc...
 INSTALL_PACKAGE=desktop # or ros-base
 ```
 
-For example, if you want to install ros-base package of ROS 2 Foxy,
+For example, if you want to install ros-base package of ROS 2 Dashing,
 edit like the followings.
 
 ```sh
-CHOOSE_ROS_DISTRO=foxy
+CHOOSE_ROS_DISTRO=dashing # or dashing, etc...
 INSTALL_PACKAGE=ros-base # or ros-base
 ```
 
@@ -38,6 +38,18 @@ After editing, run `run.sh` to install the packages.
 ```sh
 ./run.sh
 ```
+
+In addition, there are other ways to use the installers.
+
+ROS Dashing
+
+* To install `ros-dashing-ros-base`, use [`ros2-dashing-ros-base-main.sh`](./ros2-dashing-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-dashing-desktop`, use [`ros2-dashing-desktop-main.sh`](./ros2-dashing-desktop-main.sh) instead of `run.sh`.
+
+ROS Foxy
+
+* To install `ros-foxy-ros-base`, use [`ros2-foxy-ros-base-main.sh`](./ros2-foxy-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-foxy-desktop`, use [`ros2-foxy-desktop-main.sh`](./ros2-foxy-desktop-main.sh) instead of `run.sh`.
 
 ## LICENSE
 
