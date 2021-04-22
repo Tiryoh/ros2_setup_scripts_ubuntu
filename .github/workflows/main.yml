@@ -18,14 +18,8 @@ on:
     - cron: "0 1 * * 1"
 
 jobs:
-  skip:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
-
   dashing:
     runs-on: ubuntu-18.04
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
     steps:
       - uses: actions/checkout@v2
       - name: Run the install script
@@ -39,7 +33,6 @@ jobs:
 
   foxy:
     runs-on: ubuntu-20.04
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
     steps:
       - uses: actions/checkout@v2
       - name: Run the install script
