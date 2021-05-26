@@ -1,4 +1,20 @@
 
+<a name="2.0.0"></a>
+## [2.0.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.1.0...2.0.0) (2021-04-22)
+
+### Bug Fixes
+
+* Add packages on which the installer depends ([#15](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/15))
+* Check rosdep sources list before initializing to avoid error on rosdep init ([#13](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/13))
+
+### Features
+
+* Set default as foxy ([#18](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/18))
+* Drop support for ROS Eloquent ([#17](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/17))
+* Add independent installers ([#12](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/12))
+* Support ROS Foxy ([#11](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/11))
+* Drop support for ROS Crystal ([#10](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/10))
+
 <a name="1.1.0"></a>
 ## [1.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.0.0...1.1.0) (0001-01-01)
 
