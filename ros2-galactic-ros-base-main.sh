@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-# REF: https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/
+# REF: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
