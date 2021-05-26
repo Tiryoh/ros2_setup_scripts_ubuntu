@@ -25,6 +25,20 @@ jobs:
     - run:
         name: Test
         command: sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh &&  bash -c "$(head -n -2 ./tutorial.sh && echo 'which ros2')"
+  galactic:
+    docker:
+    - image: tiryoh/ubuntu:focal-dev
+    steps:
+    - checkout
+    - run:
+        name: Prepare Install
+        command: sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install keyboard-configuration
+    - run:
+        name: Install
+        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=galactic/g' -i run.sh && ./run.sh
+    - run:
+        name: Test
+        command: sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=galactic/g' -i tutorial.sh &&  bash -c "$(head -n -2 ./tutorial.sh && echo 'which ros2')"
 
 workflows:
   version: 2
