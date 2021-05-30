@@ -46,6 +46,8 @@ workflows:
     jobs:
       - dashing
       - foxy
+      - galactic
+
   scheduled-workflow:
     triggers:
       - schedule:
@@ -57,3 +59,4 @@ workflows:
     jobs:
       - dashing
       - foxy
+      - galactic
