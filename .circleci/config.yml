@@ -1,16 +1,5 @@
 version: 2
 jobs:
-  dashing:
-    docker:
-    - image: tiryoh/ubuntu:bionic-dev
-    steps:
-    - checkout
-    - run:
-        name: Install
-        command: sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=dashing/g' -i run.sh && ./run.sh
-    - run:
-        name: Test
-        command: sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh &&  bash -c "$(head -n -2 ./tutorial.sh && echo 'which ros2')"
   foxy:
     docker:
     - image: tiryoh/ubuntu:focal-dev
@@ -44,7 +33,6 @@ workflows:
   version: 2
   commit-workflow:
     jobs:
-      - dashing
       - foxy
       - galactic
 
@@ -57,6 +45,5 @@ workflows:
               only:
                 - master
     jobs:
-      - dashing
       - foxy
       - galactic

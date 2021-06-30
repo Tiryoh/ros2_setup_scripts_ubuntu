@@ -18,19 +18,6 @@ on:
     - cron: "0 1 * * 1"
 
 jobs:
-  dashing:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run the install script
-        run: |
-          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=dashing/g' -i run.sh
-          ./run.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
   foxy:
     runs-on: ubuntu-20.04
     steps:

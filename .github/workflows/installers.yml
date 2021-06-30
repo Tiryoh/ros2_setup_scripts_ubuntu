@@ -16,31 +16,6 @@ on:
     - cron: "0 1 * * 1"
 
 jobs:
-  dashing-ros-base-main:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run the install script
-        run: |
-          ./ros2-dashing-ros-base-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
-          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
-  dashing-desktop-main:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run the install script
-        run: |
-          ./ros2-dashing-desktop-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
   foxy-ros-base-main:
     runs-on: ubuntu-20.04
     steps:
