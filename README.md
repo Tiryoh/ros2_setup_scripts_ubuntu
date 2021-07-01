@@ -39,6 +39,8 @@ After editing, run `run.sh` to install the packages.
 ./run.sh
 ```
 
+### Individual installers
+
 In addition, there are other ways to use the installers.
 
 ROS Foxy
@@ -55,6 +57,11 @@ ROS Dashing (EOL)
 
 * To install `ros-dashing-ros-base`, use [`ros2-dashing-ros-base-main.sh`](./ros2-dashing-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-dashing-desktop`, use [`ros2-dashing-desktop-main.sh`](./ros2-dashing-desktop-main.sh) instead of `run.sh`.
+
+ROS Eloquent (EOL)
+
+* To install `ros-eloquent-ros-base`, use [`ros2-eloquent-ros-base-main.sh`](./ros2-eloquent-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-eloquent-desktop`, use [`ros2-eloquent-desktop-main.sh`](./ros2-eloquent-desktop-main.sh) instead of `run.sh`.
 
 ## LICENSE
 
