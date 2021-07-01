@@ -13,9 +13,9 @@ sudo apt-get install -y curl gnupg2 lsb-release build-essential
 
 [[ "$(lsb_release -sc)" == "bionic" ]] || exit 1
 
-echo "==============================================="
-echo "ROS Eloquent has been reached end-of-life (EOL)"
-echo "==============================================="
+printf '\033[33m%s\033[m\n' "==============================================="
+printf '\033[33m%s\033[m\n' "ROS Eloquent has been reached end-of-life (EOL)"
+printf '\033[33m%s\033[m\n' "==============================================="
 
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
