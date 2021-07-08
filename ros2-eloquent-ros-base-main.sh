@@ -5,17 +5,17 @@ set -eu
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-CHOOSE_ROS_DISTRO=dashing
-INSTALL_PACKAGE=ros-base
+CHOOSE_ROS_DISTRO=eloquent
+INSTALL_PACKAGE=desktop
 
 sudo apt-get update
 sudo apt-get install -y curl gnupg2 lsb-release build-essential
 
 [[ "$(lsb_release -sc)" == "bionic" ]] || exit 1
 
-printf '\033[33m%s\033[m\n' "=============================================="
-printf '\033[33m%s\033[m\n' "ROS Dashing has been reached end-of-life (EOL)"
-printf '\033[33m%s\033[m\n' "=============================================="
+printf '\033[33m%s\033[m\n' "==============================================="
+printf '\033[33m%s\033[m\n' "ROS Eloquent has been reached end-of-life (EOL)"
+printf '\033[33m%s\033[m\n' "==============================================="
 
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
