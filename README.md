@@ -7,7 +7,7 @@ unofficial ROS2 install script for Ubuntu
 
 Access https://index.ros.org/doc/ros2/Installation/ to get the updated information.
 
-ROS 1 version: https://github.dev/Tiryoh/ros_setup_scripts_ubuntu
+ROS 1 version: https://github.com/Tiryoh/ros_setup_scripts_ubuntu
 
 ## QuickStart
 
