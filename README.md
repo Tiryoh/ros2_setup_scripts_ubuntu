@@ -45,22 +45,27 @@ After editing, run `run.sh` to install the packages.
 
 In addition, there are other ways to use the installers.
 
-ROS Foxy
+ROS 2 Foxy
 
 * To install `ros-foxy-ros-base`, use [`ros2-foxy-ros-base-main.sh`](./ros2-foxy-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-foxy-desktop`, use [`ros2-foxy-desktop-main.sh`](./ros2-foxy-desktop-main.sh) instead of `run.sh`.
 
-ROS Galactic
+ROS 2 Galactic
 
 * To install `ros-galactic-ros-base`, use [`ros2-galactic-ros-base-main.sh`](./ros2-galactic-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-galactic-desktop`, use [`ros2-galactic-desktop-main.sh`](./ros2-galactic-desktop-main.sh) instead of `run.sh`.
 
-ROS Dashing (EOL)
+ROS 2 Humble
+
+* To install `ros-humble-ros-base`, use [`ros2-humble-ros-base-main.sh`](./ros2-humble-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-humble-desktop`, use [`ros2-humble-desktop-main.sh`](./ros2-humble-desktop-main.sh) instead of `run.sh`.
+
+ROS 2 Dashing (EOL)
 
 * To install `ros-dashing-ros-base`, use [`ros2-dashing-ros-base-main.sh`](./ros2-dashing-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-dashing-desktop`, use [`ros2-dashing-desktop-main.sh`](./ros2-dashing-desktop-main.sh) instead of `run.sh`.
 
-ROS Eloquent (EOL)
+ROS 2 Eloquent (EOL)
 
 * To install `ros-eloquent-ros-base`, use [`ros2-eloquent-ros-base-main.sh`](./ros2-eloquent-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-eloquent-desktop`, use [`ros2-eloquent-desktop-main.sh`](./ros2-eloquent-desktop-main.sh) instead of `run.sh`.
