@@ -19,7 +19,7 @@ jobs:
   dashing-ros-base-main:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-dashing-ros-base-main.sh
@@ -32,7 +32,7 @@ jobs:
   dashing-desktop-main:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-dashing-desktop-main.sh
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-18.04
     if: contains(github.event.head_commit.message, '[skip ci]') == false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-eloquent-ros-base-main.sh
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-18.04
     if: contains(github.event.head_commit.message, '[skip ci]') == false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-eloquent-desktop-main.sh

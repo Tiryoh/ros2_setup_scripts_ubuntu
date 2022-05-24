@@ -19,7 +19,7 @@ jobs:
   foxy-ros-base-main:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-foxy-ros-base-main.sh
@@ -32,7 +32,7 @@ jobs:
   foxy-desktop-main:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-foxy-desktop-main.sh
@@ -44,7 +44,7 @@ jobs:
   galactic-ros-base-main:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-galactic-ros-base-main.sh
@@ -57,7 +57,7 @@ jobs:
   galactic-desktop-main:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run the install script
         run: |
           ./ros2-galactic-desktop-main.sh
