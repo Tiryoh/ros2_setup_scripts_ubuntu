@@ -19,19 +19,19 @@ After downloading this repository, just run the following command.
 
 ## Usage
 
-By default, `run.sh` will install `ros-foxy-desktop`.   
+By default, `run.sh` will install `ros-humble-desktop`.   
 If you need to install another package, edit line8-9 in `run.sh`.
 
 ```sh
-CHOOSE_ROS_DISTRO=foxy # or dashing, etc...
+CHOOSE_ROS_DISTRO=humble # or foxy, etc...
 INSTALL_PACKAGE=desktop # or ros-base
 ```
 
-For example, if you want to install ros-base package of ROS 2 Dashing,
+For example, if you want to install ros-base package of ROS 2 Foxy,
 edit like the followings.
 
 ```sh
-CHOOSE_ROS_DISTRO=dashing # or dashing, etc...
+CHOOSE_ROS_DISTRO=foxy # or foxy, etc...
 INSTALL_PACKAGE=ros-base # or ros-base
 ```
 
@@ -72,7 +72,7 @@ ROS 2 Eloquent (EOL)
 
 ## LICENSE
 
-(C) 2019-2021 Tiryoh
+(C) 2019-2022 Tiryoh
 
 This repository is released under the Apache License 2.0, see [LICENSE](./LICENSE).  
 Unless attributed otherwise, everything in this repository is under the Apache License 2.0.

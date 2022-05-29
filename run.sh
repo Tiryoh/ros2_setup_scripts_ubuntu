@@ -5,7 +5,7 @@ set -eu
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-CHOOSE_ROS_DISTRO=foxy # or dashing, etc...
+CHOOSE_ROS_DISTRO=humble # or foxy, etc...
 INSTALL_PACKAGE=desktop # or ros-base
 
 sudo apt update
