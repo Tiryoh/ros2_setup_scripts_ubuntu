@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-ROS_DISTRO=dashing
+ROS_DISTRO=humble
 
 mkdir -p ~/ros2_example_ws/src
 cd ~/ros2_example_ws
