@@ -7,11 +7,28 @@ set -eu
 
 CHOOSE_ROS_DISTRO=foxy
 INSTALL_PACKAGE=desktop
+TARGET_OS=focal
 
+# Check OS version
+if ! which lsb_release > /dev/null ; then
+	sudo apt-get update
+	sudo apt-get install -y curl lsb-release
+fi
+
+if [[ "$(lsb_release -sc)" == "$TARGET_OS" ]]; then
+	echo "OS Check Passed"
+else
+	printf '\033[33m%s\033[m\n' "=================================================="
+	printf '\033[33m%s\033[m\n' "ERROR: This OS (version: $(lsb_release -sc)) is not supported"
+	printf '\033[33m%s\033[m\n' "=================================================="
+	exit 1
+fi
+
+# Install
 sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository universe
 sudo apt-get install -y curl gnupg2 lsb-release build-essential
-
-[[ "$(lsb_release -sc)" == "focal" ]] || exit 1
 
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
