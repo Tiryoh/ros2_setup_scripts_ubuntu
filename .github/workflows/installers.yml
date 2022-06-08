@@ -90,3 +90,27 @@ jobs:
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=humble/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
+
+  os-check-on-ubuntu-18.04:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-os-check-bionic.bats
+
+  os-check-on-ubuntu-20.04:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-os-check-focal.bats
+
+  os-check-on-ubuntu-22.04:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-os-check-jammy.bats
