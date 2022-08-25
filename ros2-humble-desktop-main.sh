@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -eu
 
+# Copyright 2019-2022 Tiryoh
+# https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
+# Licensed under the Apache License, Version 2.0
+#
 # REF: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
