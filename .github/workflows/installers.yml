@@ -2,13 +2,13 @@ name: ROS2 installers test
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - "ros2-**.sh"
       - ".github/workflows/installers.yml"
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - "ros2-**.sh"
       - ".github/workflows/installers.yml"
