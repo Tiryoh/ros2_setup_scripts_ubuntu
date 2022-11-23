@@ -2,14 +2,14 @@ name: ROS2 install test
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - "run.sh"
       - "tutorial.sh"
       - ".github/workflows/main.yml"
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - "run.sh"
       - "tutorial.sh"
