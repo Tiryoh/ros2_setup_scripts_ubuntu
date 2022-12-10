@@ -41,31 +41,6 @@ jobs:
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
-  galactic-ros-base-main:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run the install script
-        run: |
-          ./ros2-galactic-ros-base-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=galactic/g' -i tutorial.sh
-          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
-  galactic-desktop-main:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run the install script
-        run: |
-          ./ros2-galactic-desktop-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=galactic/g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
   humble-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
