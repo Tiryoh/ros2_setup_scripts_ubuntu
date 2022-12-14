@@ -36,6 +36,10 @@ if ! dpkg --print-architecture | grep -q 64; then
 	exit 1
 fi
 
+printf '\033[33m%s\033[m\n' "==============================================="
+printf '\033[33m%s\033[m\n' "ROS Galactic has been reached end-of-life (EOL)"
+printf '\033[33m%s\033[m\n' "==============================================="
+
 # Install
 sudo apt-get update
 sudo apt-get install -y software-properties-common
@@ -51,7 +55,7 @@ sudo apt-get install -y python3-colcon-common-extensions
 sudo apt-get install -y python3-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
 [ -e /etc/ros/rosdep/sources.list.d/20-default.list ] ||
 sudo rosdep init
-rosdep update
+rosdep update --include-eol-distros # https://discourse.ros.org/t/rosdep-and-eol-distros/7640
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
