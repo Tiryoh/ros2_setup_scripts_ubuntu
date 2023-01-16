@@ -4,14 +4,18 @@ on:
     branches:
       - main
     paths:
-      - "ros2-**.sh"
-      - ".github/workflows/installers.yml"
+      - "ros2-dashing-**.sh"
+      - "ros2-eloquent-**.sh"
+      - "ros2-galactic-**.sh"
+      - ".github/workflows/eol-installers.yml"
   pull_request:
     branches:
       - main
     paths:
-      - "ros2-**.sh"
-      - ".github/workflows/installers.yml"
+      - "ros2-dashing-**.sh"
+      - "ros2-eloquent-**.sh"
+      - "ros2-galactic-**.sh"
+      - ".github/workflows/eol-installers.yml"
   schedule:
     - cron: "0 1 * * 1"
 

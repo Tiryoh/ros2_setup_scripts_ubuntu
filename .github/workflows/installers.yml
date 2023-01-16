@@ -4,13 +4,15 @@ on:
     branches:
       - main
     paths:
-      - "ros2-**.sh"
+      - "ros2-foxy-**.sh"
+      - "ros2-humble-**.sh"
       - ".github/workflows/installers.yml"
   pull_request:
     branches:
       - main
     paths:
-      - "ros2-**.sh"
+      - "ros2-foxy-**.sh"
+      - "ros2-humble-**.sh"
       - ".github/workflows/installers.yml"
   schedule:
     - cron: "0 1 * * 1"
