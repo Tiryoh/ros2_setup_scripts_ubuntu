@@ -38,7 +38,7 @@ fi
 
 # Install
 sudo apt-get update
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y universe
 sudo apt-get install -y curl gnupg2 lsb-release build-essential
 
