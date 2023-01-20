@@ -43,7 +43,7 @@ printf '\033[33m%s\033[m\n' "==============================================="
 # Install
 sudo apt-get update
 sudo apt-get install -y software-properties-common
-sudo add-apt-repository universe
+sudo add-apt-repository -y universe
 sudo apt-get install -y curl gnupg2 lsb-release build-essential
 
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
