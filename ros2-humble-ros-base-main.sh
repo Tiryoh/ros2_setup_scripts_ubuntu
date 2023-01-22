@@ -36,6 +36,12 @@ if ! dpkg --print-architecture | grep -q 64; then
 	exit 1
 fi
 
+# systemd and udev-related packages needs to be updated
+# ref: https://github.com/ros2/ros2_documentation/pull/2581
+# ref: https://itsfoss.com/apt-get-upgrade-vs-dist-upgrade/
+# ref: https://penpen-dev.com/blog/upgrade-tigai/
+sudo apt-get update && sudo apt upgrade -y
+
 # Install
 sudo apt-get update
 sudo apt-get install -y software-properties-common
