@@ -22,7 +22,7 @@ sudo apt install -y python3-argcomplete
 sudo apt install -y python3-colcon-common-extensions
 if [ "$(lsb_release -cs)" = "bionic" ]; then
 	sudo apt install -y python-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
-elif [ "$(lsb_release -cs)" = "focal" ]; then
+else
 	sudo apt install -y python3-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
 fi
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
