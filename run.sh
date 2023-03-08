@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-# Copyright 2019-2022 Tiryoh
+# Copyright 2019-2023 Tiryoh
 # https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
 # Licensed under the Apache License, Version 2.0
 #
@@ -25,8 +25,13 @@ if [ "$(lsb_release -cs)" = "bionic" ]; then
 else
 	sudo apt install -y python3-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
 fi
+[ -e /etc/ros/rosdep/sources.list.d/20-default.list ] ||
+sudo rosdep init
+rosdep update
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
+grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
+echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 
 set +u
 
