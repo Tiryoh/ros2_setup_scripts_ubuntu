@@ -4,45 +4,18 @@ on:
     branches:
       - main
     paths:
-      - "ros2-foxy-**.sh"
       - "ros2-humble-**.sh"
       - ".github/workflows/installers.yml"
   pull_request:
     branches:
       - main
     paths:
-      - "ros2-foxy-**.sh"
       - "ros2-humble-**.sh"
       - ".github/workflows/installers.yml"
   schedule:
     - cron: "0 1 * * 1"
 
 jobs:
-  foxy-ros-base-main:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run the install script
-        run: |
-          ./ros2-foxy-ros-base-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
-          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
-  foxy-desktop-main:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run the install script
-        run: |
-          ./ros2-foxy-desktop-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
   humble-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
@@ -67,26 +40,6 @@ jobs:
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=humble/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
-
-  os-check-on-ubuntu-bionic:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Run bats test
-        run: |
-          ./.test/bats/bin/bats ./.test/test-os-check-bionic.bats
-
-  os-check-on-ubuntu-focal:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Run bats test
-        run: |
-          ./.test/bats/bin/bats ./.test/test-os-check-focal.bats
 
   os-check-on-ubuntu-jammy:
     runs-on: ubuntu-22.04

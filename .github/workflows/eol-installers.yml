@@ -6,6 +6,7 @@ on:
     paths:
       - "ros2-dashing-**.sh"
       - "ros2-eloquent-**.sh"
+      - "ros2-foxy-**.sh"
       - "ros2-galactic-**.sh"
       - ".github/workflows/eol-installers.yml"
   pull_request:
@@ -14,62 +15,108 @@ on:
     paths:
       - "ros2-dashing-**.sh"
       - "ros2-eloquent-**.sh"
+      - "ros2-foxy-**.sh"
       - "ros2-galactic-**.sh"
       - ".github/workflows/eol-installers.yml"
   schedule:
     - cron: "0 1 * * 1"
 
 jobs:
-  dashing-ros-base-main:
-    runs-on: ubuntu-18.04
+  # os-check-on-ubuntu-bionic:
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
+  #     - name: Run bats test
+  #       run: |
+  #         ./.test/bats/bin/bats ./.test/test-os-check-bionic.bats
+
+  os-check-on-ubuntu-focal:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Run bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-os-check-focal.bats
+
+  # dashing-ros-base-main:
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run the install script
+  #       run: |
+  #         ./ros2-dashing-ros-base-main.sh
+  #     - name: Run the test script
+  #       run: |
+  #         sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
+  #         sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+  #         bash <(head -n -2 ./tutorial.sh)
+
+  # dashing-desktop-main:
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run the install script
+  #       run: |
+  #         ./ros2-dashing-desktop-main.sh
+  #     - name: Run the test script
+  #       run: |
+  #         sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
+  #         bash <(head -n -2 ./tutorial.sh)
+
+  # eloquent-ros-base-main:
+  #   runs-on: ubuntu-18.04
+  #   if: contains(github.event.head_commit.message, '[skip ci]') == false
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run the install script
+  #       run: |
+  #         ./ros2-eloquent-ros-base-main.sh
+  #     - name: Run the test script
+  #       run: |
+  #         sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+  #         sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+  #         bash <(head -n -2 ./tutorial.sh)
+
+  # eloquent-desktop-main:
+  #   runs-on: ubuntu-18.04
+  #   if: contains(github.event.head_commit.message, '[skip ci]') == false
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run the install script
+  #       run: |
+  #         ./ros2-eloquent-desktop-main.sh
+  #     - name: Run the test script
+  #       run: |
+  #         sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+  #         bash <(head -n -2 ./tutorial.sh)
+
+  foxy-ros-base-main:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Run the install script
         run: |
-          ./ros2-dashing-ros-base-main.sh
+          ./ros2-foxy-ros-base-main.sh
       - name: Run the test script
         run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
           sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
-  dashing-desktop-main:
-    runs-on: ubuntu-18.04
+  foxy-desktop-main:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Run the install script
         run: |
-          ./ros2-dashing-desktop-main.sh
+          ./ros2-foxy-desktop-main.sh
       - name: Run the test script
         run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=dashing/g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
-  eloquent-ros-base-main:
-    runs-on: ubuntu-18.04
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run the install script
-        run: |
-          ./ros2-eloquent-ros-base-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
-          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
-  eloquent-desktop-main:
-    runs-on: ubuntu-18.04
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run the install script
-        run: |
-          ./ros2-eloquent-desktop-main.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=eloquent/g' -i tutorial.sh
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=foxy/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
   galactic-ros-base-main:
