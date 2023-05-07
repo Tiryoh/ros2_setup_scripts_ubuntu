@@ -16,6 +16,16 @@ on:
     - cron: "0 1 * * 1"
 
 jobs:
+  os-check-on-ubuntu-jammy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Run bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-os-check-jammy.bats
+
   humble-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
@@ -40,13 +50,3 @@ jobs:
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=humble/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
-
-  os-check-on-ubuntu-jammy:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Run bats test
-        run: |
-          ./.test/bats/bin/bats ./.test/test-os-check-jammy.bats
