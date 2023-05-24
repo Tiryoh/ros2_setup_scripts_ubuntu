@@ -22,7 +22,7 @@ By default, `run.sh` will install `ros-humble-desktop`.
 If you need to install another package, edit line8-9 in `run.sh`.
 
 ```sh
-CHOOSE_ROS_DISTRO=humble # or foxy, etc...
+CHOOSE_ROS_DISTRO=humble # or foxy, iron, etc...
 INSTALL_PACKAGE=desktop # or ros-base
 ```
 
@@ -30,7 +30,7 @@ For example, if you want to install ros-base package of ROS 2 Foxy,
 edit like the followings.
 
 ```sh
-CHOOSE_ROS_DISTRO=foxy # or foxy, etc...
+CHOOSE_ROS_DISTRO=foxy # or foxy, iron, etc...
 INSTALL_PACKAGE=ros-base # or ros-base
 ```
 
@@ -53,6 +53,11 @@ ROS 2 Humble
 
 * To install `ros-humble-ros-base`, use [`ros2-humble-ros-base-main.sh`](./ros2-humble-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-humble-desktop`, use [`ros2-humble-desktop-main.sh`](./ros2-humble-desktop-main.sh) instead of `run.sh`.
+
+ROS 2 Iron
+
+* To install `ros-iron-ros-base`, use [`ros2-iron-ros-base-main.sh`](./ros2-iron-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-iron-desktop`, use [`ros2-iron-desktop-main.sh`](./ros2-iron-desktop-main.sh) instead of `run.sh`.
 
 ROS 2 Dashing (EOL)
 
