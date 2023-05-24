@@ -43,3 +43,16 @@ jobs:
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=humble/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
+
+  iron:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run the install script
+        run: |
+          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=iron/g' -i run.sh
+          ./run.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=iron/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
