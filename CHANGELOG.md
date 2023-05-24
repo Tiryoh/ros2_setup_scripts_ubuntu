@@ -1,6 +1,35 @@
+<a name="2.1.0"></a>
+## [2.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/2.0.0...2.1.0) (2023-05-07)
+
+### Bug Fixes
+
+* Add missing rosdep init step ([#48](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/48))
+* Add missing system upgrade step ([#44](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/44))
+* Allow for unattended execution ([#41](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/41))
+* Allow for unattended execution ([#40](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/40))
+
+### Documentation Updates
+
+* Update ROS distro list ([#45](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/45))
+* Fix typo
+* Add link to ROS 1 setup scripts
+
+### Features
+
+* Add colcon-clean ([#43](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/43))
+* Drop support for ROS Galactic ([#39](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/39))
+* Enable colcon-argcomplete ([#36](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/36))
+* Add arch check ([#33](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/33))
+* Run OS check first ([#32](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/32))
+* Make ROS 2 Humble the default ([#31](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/31))
+* Add ROS 2 Humble ([#29](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/29))
+* Separate EOL installers ([#26](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/26))
+* Update GPG key installation step to the latest ([#23](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/23))
+* Support ROS 2 Galactic Geochelone ([#21](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/21))
+
 
 <a name="2.0.0"></a>
-## [2.0.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.1.0...2.0.0) (2021-04-22)
+## [2.0.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.1.0...2.0.0) (2021-07-08)
 
 ### Bug Fixes
 
@@ -16,7 +45,7 @@
 * Drop support for ROS Crystal ([#10](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/10))
 
 <a name="1.1.0"></a>
-## [1.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.0.0...1.1.0) (0001-01-01)
+## [1.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.0.0...1.1.0) (2020-01-16)
 
 ### Documentation Updates
 
