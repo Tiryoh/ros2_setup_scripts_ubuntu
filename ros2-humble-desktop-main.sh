@@ -62,6 +62,8 @@ grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+grep -F "export ROS_LOCALHOST_ONLY=1" ~/.bashrc ||
+echo "# export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
 
 set +u
 
