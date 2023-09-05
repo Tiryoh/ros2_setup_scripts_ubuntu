@@ -19,7 +19,7 @@ jobs:
   os-check-on-ubuntu-jammy:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Run bats test
@@ -29,7 +29,7 @@ jobs:
   humble-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run the install script
         run: |
           ./ros2-humble-ros-base-main.sh
@@ -42,7 +42,7 @@ jobs:
   humble-desktop-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run the install script
         run: |
           ./ros2-humble-desktop-main.sh
@@ -54,7 +54,7 @@ jobs:
   iron-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run the install script
         run: |
           ./ros2-iron-ros-base-main.sh
@@ -67,7 +67,7 @@ jobs:
   iron-desktop-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run the install script
         run: |
           ./ros2-iron-desktop-main.sh
