@@ -62,8 +62,10 @@ grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
-grep -F "export ROS_LOCALHOST_ONLY=1" ~/.bashrc ||
-echo "# export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
+# ROS 2 Iron uses ROS_AUTOMATIC_DISCOVERY_RANGE instead of ROS_LOCALHOST_ONLY
+# https://docs.ros.org/en/iron/Releases/Release-Iron-Irwini.html#improved-discovery-options
+grep -F "export ROS_AUTOMATIC_DISCOVERY_RANGE=" ~/.bashrc ||
+echo "# export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
 
 set +u
 
