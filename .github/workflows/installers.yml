@@ -91,7 +91,7 @@ jobs:
           bash <(head -n -2 ./tutorial.sh)
 
   jazzy-ros-base-main:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Run the install script
@@ -104,7 +104,7 @@ jobs:
           bash <(head -n -2 ./tutorial.sh)
 
   jazzy-desktop-main:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Run the install script
@@ -116,7 +116,7 @@ jobs:
           bash <(head -n -2 ./tutorial.sh)
 
   jazzy-ros-base-testing:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Run the install script
@@ -129,7 +129,7 @@ jobs:
           bash <(head -n -2 ./tutorial.sh)
 
   jazzy-desktop-testing:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Run the install script
