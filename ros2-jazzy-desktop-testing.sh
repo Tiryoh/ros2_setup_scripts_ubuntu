@@ -54,8 +54,6 @@ sudo rosdep init
 rosdep update
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
-grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
-echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 # From ROS 2 Iron, it uses ROS_AUTOMATIC_DISCOVERY_RANGE instead of ROS_LOCALHOST_ONLY
 # https://docs.ros.org/en/iron/Releases/Release-Iron-Irwini.html#improved-discovery-options
 grep -F "export ROS_AUTOMATIC_DISCOVERY_RANGE=" ~/.bashrc ||
