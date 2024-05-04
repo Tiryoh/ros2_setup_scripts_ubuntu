@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-# Copyright 2019-2022 Tiryoh
+# Copyright 2019-2024 Tiryoh
 # https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
 # Licensed under the Apache License, Version 2.0
 #
@@ -35,6 +35,10 @@ if ! dpkg --print-architecture | grep -q 64; then
 	printf '\033[33m%s\033[m\n' "=================================================="
 	exit 1
 fi
+
+printf '\033[33m%s\033[m\n' "==============================================="
+printf '\033[33m%s\033[m\n' "ROS Foxy has been reached end-of-life (EOL)"
+printf '\033[33m%s\033[m\n' "==============================================="
 
 # Install
 sudo apt-get update
