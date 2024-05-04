@@ -18,31 +18,10 @@ After downloading this repository, just run the following command.
 
 ## Usage
 
-By default, `run.sh` will install `ros-humble-desktop`.   
-If you need to install another package, edit line8-9 in `run.sh`.
-
-```sh
-CHOOSE_ROS_DISTRO=humble # or foxy, iron, etc...
-INSTALL_PACKAGE=desktop # or ros-base
-```
-
-For example, if you want to install ros-base package of ROS 2 Foxy,
-edit like the followings.
-
-```sh
-CHOOSE_ROS_DISTRO=foxy # or foxy, iron, etc...
-INSTALL_PACKAGE=ros-base # or ros-base
-```
-
-After editing, run `run.sh` to install the packages.
-
-```sh
-./run.sh
-```
+By default, `run.sh` will install `ros-jazzy-desktop`.   
+If you need to install another package, use indivitual installers listed bellow.
 
 ### Individual installers
-
-In addition, there are other ways to use the installers.
 
 ROS 2 Humble (LTS)
 
