@@ -17,3 +17,9 @@ setup() {
 	[ "$status" -eq 1 ]
 	assert_output --partial "ERROR: This OS (version: jammy) is not supported"
 }
+
+@test "Jazzy fail on Ubuntu 22.04" {
+	run ./ros2-jazzy-desktop-main.sh
+	[ "$status" -eq 1 ]
+	assert_output --partial "ERROR: This OS (version: jammy) is not supported"
+}
