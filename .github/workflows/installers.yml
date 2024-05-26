@@ -115,27 +115,3 @@ jobs:
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=jazzy/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
 
-  jazzy-ros-base-testing:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run the install script
-        run: |
-          ./ros2-jazzy-ros-base-testing.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=jazzy/g' -i tutorial.sh
-          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
-
-  jazzy-desktop-testing:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run the install script
-        run: |
-          ./ros2-jazzy-desktop-testing.sh
-      - name: Run the test script
-        run: |
-          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=jazzy/g' -i tutorial.sh
-          bash <(head -n -2 ./tutorial.sh)
