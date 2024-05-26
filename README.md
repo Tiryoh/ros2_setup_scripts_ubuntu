@@ -18,31 +18,10 @@ After downloading this repository, just run the following command.
 
 ## Usage
 
-By default, `run.sh` will install `ros-humble-desktop`.   
-If you need to install another package, edit line8-9 in `run.sh`.
-
-```sh
-CHOOSE_ROS_DISTRO=humble # or foxy, iron, etc...
-INSTALL_PACKAGE=desktop # or ros-base
-```
-
-For example, if you want to install ros-base package of ROS 2 Foxy,
-edit like the followings.
-
-```sh
-CHOOSE_ROS_DISTRO=foxy # or foxy, iron, etc...
-INSTALL_PACKAGE=ros-base # or ros-base
-```
-
-After editing, run `run.sh` to install the packages.
-
-```sh
-./run.sh
-```
+By default, `run.sh` will install `ros-jazzy-desktop`.   
+If you need to install another package, use indivitual installers listed bellow.
 
 ### Individual installers
-
-In addition, there are other ways to use the installers.
 
 ROS 2 Humble (LTS)
 
@@ -53,6 +32,13 @@ ROS 2 Iron
 
 * To install `ros-iron-ros-base`, use [`ros2-iron-ros-base-main.sh`](./ros2-iron-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-iron-desktop`, use [`ros2-iron-desktop-main.sh`](./ros2-iron-desktop-main.sh) instead of `run.sh`.
+
+ROS 2 Jazzy (LTS)
+
+* To install `ros-jazzy-ros-base`, use [`ros2-jazzy-ros-base-main.sh`](./ros2-jazzy-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-jazzy-desktop`, use [`ros2-jazzy-desktop-main.sh`](./ros2-jazzy-desktop-main.sh) instead of `run.sh`.
+
+#### Old versions
 
 ROS 2 Dashing (EOL)
 
@@ -80,15 +66,22 @@ Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ro
 
 | Ubuntu | ROS 1 | ROS 2 |
 | ------ | ----- | ----- |
-| Ubuntu 18.04<br>EOL: May 2023 | Melodic<br>EOL: May 2023 | Dashing<br>EOL: May 2021 |
-| Ubuntu 20.04<br>EOL: May 2025 | Noetic<br>EOL: May 2025 | Foxy<br>EOL: May 2023 |
-| Ubuntu 22.04<br>EOL: May 2027 | - | Humble<br>EOL: May 2027 |
+| Ubuntu 18.04<br>EOL: May 2023[^2] | Melodic<br>EOL: May 2023 | Dashing<br>EOL: May 2021 |
+| Ubuntu 20.04<br>EOL: April 2025[^3] | Noetic<br>EOL: May 2025 | Foxy<br>EOL: May 2023 |
+| Ubuntu 22.04<br>EOL: April 2027[^4] | - | Humble<br>EOL: May 2027 |
+| Ubuntu 24.04<br>EOL: June 2029[^5] | - | Jazzy<br>EOL: May 2029 |
 
+* Note: Here, EOL for Ubuntu refers to the end of normal support, which is not Ubuntu Pro.
+
+[^2]: https://ubuntu.com//blog/18-04-end-of-standard-support
+[^3]: https://wiki.ubuntu.com/FocalFossa/ReleaseNotes
+[^4]: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668
+[^5]: https://discourse.ubuntu.com/t/noble-numbat-release-notes/39890
 
 ## LICENSE
 
 ```
-Copyright 2019-2023 Tiryoh
+Copyright 2019-2024 Tiryoh
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

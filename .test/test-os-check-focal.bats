@@ -11,3 +11,15 @@ setup() {
 	[ "$status" -eq 1 ]
 	assert_output --partial "ERROR: This OS (version: focal) is not supported"
 }
+
+@test "Iron fail on Ubuntu 20.04" {
+	run ./ros2-iron-desktop-main.sh
+	[ "$status" -eq 1 ]
+	assert_output --partial "ERROR: This OS (version: focal) is not supported"
+}
+
+@test "Jazzy fail on Ubuntu 20.04" {
+	run ./ros2-jazzy-desktop-main.sh
+	[ "$status" -eq 1 ]
+	assert_output --partial "ERROR: This OS (version: focal) is not supported"
+}

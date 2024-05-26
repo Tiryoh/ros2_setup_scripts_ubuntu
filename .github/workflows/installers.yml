@@ -5,12 +5,16 @@ on:
       - main
     paths:
       - "ros2-humble-**.sh"
+      - "ros2-iron-**.sh"
+      - "ros2-jazzy-**.sh"
       - ".github/workflows/installers.yml"
   pull_request:
     branches:
       - main
     paths:
       - "ros2-humble-**.sh"
+      - "ros2-iron-**.sh"
+      - "ros2-jazzy-**.sh"
       - ".github/workflows/installers.yml"
   schedule:
     - cron: "0 1 * * 1"
@@ -25,6 +29,16 @@ jobs:
       - name: Run bats test
         run: |
           ./.test/bats/bin/bats ./.test/test-os-check-jammy.bats
+
+  os-check-on-ubuntu-noble:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Run bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-os-check-noble.bats
 
   humble-ros-base-main:
     runs-on: ubuntu-22.04
@@ -75,3 +89,29 @@ jobs:
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=iron/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
+
+  jazzy-ros-base-main:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the install script
+        run: |
+          ./ros2-jazzy-ros-base-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=jazzy/g' -i tutorial.sh
+          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  jazzy-desktop-main:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the install script
+        run: |
+          ./ros2-jazzy-desktop-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=jazzy/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
