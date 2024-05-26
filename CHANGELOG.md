@@ -1,5 +1,18 @@
+
+<a name="2.2.0"></a>
+## [2.2.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/2.1.0...2.2.0) (2024-05-27)
+
+### Features
+
+* Add ROS 2 Jazzy ([#61](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/61))
+* Declare Foxy EOL ([#60](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/60))
+* Use DDS improved discovery options ([#58](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/58))
+* Add ROS_LOCALHOST_ONLY option ([#57](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/57))
+* Drop Foxy support ([#49](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/49))
+
+
 <a name="2.1.0"></a>
-## [2.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/2.0.0...2.1.0) (2023-05-07)
+## [2.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/2.0.0...2.1.0) (2023-05-25)
 
 ### Bug Fixes
 
@@ -16,6 +29,7 @@
 
 ### Features
 
+* Add ROS 2 Iron Irwini ([#52](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/52))
 * Add colcon-clean ([#43](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/43))
 * Drop support for ROS Galactic ([#39](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/39))
 * Enable colcon-argcomplete ([#36](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/36))
@@ -43,6 +57,7 @@
 * Add independent installers ([#12](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/12))
 * Support ROS Foxy ([#11](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/11))
 * Drop support for ROS Crystal ([#10](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/issues/10))
+
 
 <a name="1.1.0"></a>
 ## [1.1.0](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu/compare/1.0.0...1.1.0) (2020-01-16)
