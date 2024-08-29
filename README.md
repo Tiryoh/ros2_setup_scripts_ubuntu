@@ -4,7 +4,7 @@
 
 unofficial ROS2 install script for Ubuntu
 
-Access https://index.ros.org/doc/ros2/Installation/ to get the updated information.
+Access https://docs.ros.org/en/jazzy/Installation.html to get the updated information.
 
 ROS 1 version: https://github.com/Tiryoh/ros_setup_scripts_ubuntu
 
@@ -98,10 +98,12 @@ limitations under the License.
 
 ### Acknowledgements
 
-`run.sh` is based on https://index.ros.org/doc/ros2/Installation/Crystal/Linux-Install-Debians/
+`run.sh` is based on [https://index.ros.org/doc/ros2/Installation/Crystal/Linux-Install-Debians/](https://web.archive.org/web/20190618134850/https://index.ros.org//doc/ros2/Installation/Crystal/Linux-Install-Debians/)
 by Open Robotics, licensed under CC-BY-4.0.  
 
-`tutorial.sh` is based on https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/
+`tutorial.sh` is based on [https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/](https://web.archive.org/web/20190618134901/https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/)
 by Open Robotics, licensed under CC-BY-4.0.  
 
 source: https://github.com/ros2/ros2_documentation
+
+Access https://docs.ros.org/en/jazzy/Installation.html to get the updated information.
