@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -eu
 
-# Copyright 2019-2023 Tiryoh
+# Copyright 2019-2024 Tiryoh
 # https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
 # Licensed under the Apache License, Version 2.0
 #
-# REF: https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/
+# REF: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
@@ -21,9 +21,9 @@ sudo apt install -y ros-$CHOOSE_ROS_DISTRO-$INSTALL_PACKAGE
 sudo apt install -y python3-argcomplete
 sudo apt install -y python3-colcon-common-extensions
 if [ "$(lsb_release -cs)" = "bionic" ]; then
-	sudo apt install -y python-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
+	sudo apt install -y python-rosdep python3-vcstool
 else
-	sudo apt install -y python3-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
+	sudo apt install -y python3-rosdep python3-vcstool
 fi
 [ -e /etc/ros/rosdep/sources.list.d/20-default.list ] ||
 sudo rosdep init
