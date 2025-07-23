@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-# Copyright 2019-2024 Tiryoh
+# Copyright 2019-2025 Tiryoh
 # https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
 # Licensed under the Apache License, Version 2.0
 #
@@ -9,7 +9,7 @@ set -eu
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-CHOOSE_ROS_DISTRO=jazzy # or humble, iron, etc...
+CHOOSE_ROS_DISTRO=jazzy # or humble, kilted, etc...
 INSTALL_PACKAGE=desktop # or ros-base
 
 sudo apt update
