@@ -57,7 +57,7 @@ sudo apt-get install -y python3-colcon-common-extensions
 sudo apt-get install -y python3-rosdep python3-vcstool
 [ -e /etc/ros/rosdep/sources.list.d/20-default.list ] ||
 sudo rosdep init
-rosdep update
+rosdep update --include-eol-distros
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
