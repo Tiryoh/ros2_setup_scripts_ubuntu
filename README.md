@@ -28,15 +28,15 @@ ROS 2 Humble (LTS)
 * To install `ros-humble-ros-base`, use [`ros2-humble-ros-base-main.sh`](./ros2-humble-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-humble-desktop`, use [`ros2-humble-desktop-main.sh`](./ros2-humble-desktop-main.sh) instead of `run.sh`.
 
-ROS 2 Iron
-
-* To install `ros-iron-ros-base`, use [`ros2-iron-ros-base-main.sh`](./ros2-iron-ros-base-main.sh) instead of `run.sh`.
-* To install `ros-iron-desktop`, use [`ros2-iron-desktop-main.sh`](./ros2-iron-desktop-main.sh) instead of `run.sh`.
-
 ROS 2 Jazzy (LTS)
 
 * To install `ros-jazzy-ros-base`, use [`ros2-jazzy-ros-base-main.sh`](./ros2-jazzy-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-jazzy-desktop`, use [`ros2-jazzy-desktop-main.sh`](./ros2-jazzy-desktop-main.sh) instead of `run.sh`.
+
+ROS 2 Kilted
+
+* To install `ros-kilted-ros-base`, use [`ros2-kilted-ros-base-main.sh`](./ros2-kilted-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-kilted-desktop`, use [`ros2-kilted-desktop-main.sh`](./ros2-kilted-desktop-main.sh) instead of `run.sh`.
 
 #### Old versions
 
@@ -60,6 +60,11 @@ ROS 2 Galactic (EOL)
 * To install `ros-galactic-ros-base`, use [`ros2-galactic-ros-base-main.sh`](./ros2-galactic-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-galactic-desktop`, use [`ros2-galactic-desktop-main.sh`](./ros2-galactic-desktop-main.sh) instead of `run.sh`.
 
+ROS 2 Iron (EOL)
+
+* To install `ros-iron-ros-base`, use [`ros2-iron-ros-base-main.sh`](./ros2-iron-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-iron-desktop`, use [`ros2-iron-desktop-main.sh`](./ros2-iron-desktop-main.sh) instead of `run.sh`.
+
 ## Supported LTS Versions
 
 Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ros.org/reps/rep-2000.html)
@@ -81,7 +86,7 @@ Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ro
 ## LICENSE
 
 ```
-Copyright 2019-2024 Tiryoh
+Copyright 2019-2025 Tiryoh
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
