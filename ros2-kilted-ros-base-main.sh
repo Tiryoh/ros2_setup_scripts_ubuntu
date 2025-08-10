@@ -28,9 +28,10 @@ else
 	exit 1
 fi
 
-if ! dpkg --print-architecture | grep -q 64; then
+ARCH=$(dpkg --print-architecture)
+if [[ "$ARCH" != "amd64" && "$ARCH" != "arm64" ]]; then
 	printf '\033[33m%s\033[m\n' "=================================================="
-	printf '\033[33m%s\033[m\n' "ERROR: This architecture ($(dpkg --print-architecture)) is not supported"
+	printf '\033[33m%s\033[m\n' "ERROR: This architecture ($ARCH) is not supported"
 	printf '\033[33m%s\033[m\n' "See https://www.ros.org/reps/rep-2000.html"
 	printf '\033[33m%s\033[m\n' "=================================================="
 	exit 1
