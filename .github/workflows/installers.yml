@@ -23,7 +23,7 @@ jobs:
   os-check-on-ubuntu-jammy:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: recursive
       - name: Run bats test
@@ -33,7 +33,7 @@ jobs:
   os-check-on-ubuntu-noble:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: recursive
       - name: Run bats test
@@ -43,7 +43,7 @@ jobs:
   humble-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run the install script
         run: |
           ./ros2-humble-ros-base-main.sh
@@ -56,7 +56,7 @@ jobs:
   humble-desktop-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run the install script
         run: |
           ./ros2-humble-desktop-main.sh
@@ -68,7 +68,7 @@ jobs:
   jazzy-ros-base-main:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run the install script
         run: |
           ./ros2-jazzy-ros-base-main.sh
@@ -81,7 +81,7 @@ jobs:
   jazzy-desktop-main:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run the install script
         run: |
           ./ros2-jazzy-desktop-main.sh
@@ -93,7 +93,7 @@ jobs:
   kilted-ros-base-main:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run the install script
         run: |
           ./ros2-kilted-ros-base-main.sh
@@ -106,7 +106,7 @@ jobs:
   kilted-desktop-main:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run the install script
         run: |
           ./ros2-kilted-desktop-main.sh
