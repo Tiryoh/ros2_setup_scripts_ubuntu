@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 set -eu
 
-# Copyright 2019-2024 Tiryoh
+# Copyright 2019-2025 Tiryoh
 # https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
 # Licensed under the Apache License, Version 2.0
 #
-# REF: https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html
+# REF: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html
 # by Open Robotics, licensed under CC-BY-4.0
 # source: https://github.com/ros2/ros2_documentation
 
-CHOOSE_ROS_DISTRO=iron
-INSTALL_PACKAGE=ros-base
-TARGET_OS=jammy
+CHOOSE_ROS_DISTRO=kilted
+INSTALL_PACKAGE=desktop
+TARGET_OS=noble
 
 # Check OS version
 if ! which lsb_release > /dev/null ; then
@@ -28,19 +28,14 @@ else
 	exit 1
 fi
 
-if ! dpkg --print-architecture | grep -q 64; then
+ARCH=$(dpkg --print-architecture)
+if [[ "$ARCH" != "amd64" && "$ARCH" != "arm64" ]]; then
 	printf '\033[33m%s\033[m\n' "=================================================="
-	printf '\033[33m%s\033[m\n' "ERROR: This architecture ($(dpkg --print-architecture)) is not supported"
+	printf '\033[33m%s\033[m\n' "ERROR: This architecture ($ARCH) is not supported"
 	printf '\033[33m%s\033[m\n' "See https://www.ros.org/reps/rep-2000.html"
 	printf '\033[33m%s\033[m\n' "=================================================="
 	exit 1
 fi
-
-# systemd and udev-related packages needs to be updated
-# ref: https://github.com/ros2/ros2_documentation/pull/2581
-# ref: https://itsfoss.com/apt-get-upgrade-vs-dist-upgrade/
-# ref: https://penpen-dev.com/blog/upgrade-tigai/
-sudo apt-get update && sudo apt upgrade -y
 
 # Install
 sudo apt-get update
@@ -57,12 +52,10 @@ sudo apt-get install -y python3-colcon-common-extensions
 sudo apt-get install -y python3-rosdep python3-vcstool
 [ -e /etc/ros/rosdep/sources.list.d/20-default.list ] ||
 sudo rosdep init
-rosdep update --include-eol-distros
+rosdep update
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
-grep -F "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" ~/.bashrc ||
-echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
-# ROS 2 Iron uses ROS_AUTOMATIC_DISCOVERY_RANGE instead of ROS_LOCALHOST_ONLY
+# From ROS 2 Iron, it uses ROS_AUTOMATIC_DISCOVERY_RANGE instead of ROS_LOCALHOST_ONLY
 # https://docs.ros.org/en/iron/Releases/Release-Iron-Irwini.html#improved-discovery-options
 grep -F "export ROS_AUTOMATIC_DISCOVERY_RANGE=" ~/.bashrc ||
 echo "# export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
