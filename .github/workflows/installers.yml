@@ -44,6 +44,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
+      - name: Set up Python for ROS 2
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
       - name: Run the install script
         run: |
           ./ros2-humble-ros-base-main.sh
@@ -57,6 +61,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
+      - name: Set up Python for ROS 2
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
       - name: Run the install script
         run: |
           ./ros2-humble-desktop-main.sh
@@ -69,6 +77,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
+      - name: Set up Python for ROS 2
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Run the install script
         run: |
           ./ros2-jazzy-ros-base-main.sh
@@ -82,6 +94,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
+      - name: Set up Python for ROS 2
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Run the install script
         run: |
           ./ros2-jazzy-desktop-main.sh
@@ -94,6 +110,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
+      - name: Set up Python for ROS 2
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Run the install script
         run: |
           ./ros2-kilted-ros-base-main.sh
@@ -107,6 +127,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
+      - name: Set up Python for ROS 2
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Run the install script
         run: |
           ./ros2-kilted-desktop-main.sh
