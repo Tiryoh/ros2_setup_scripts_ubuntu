@@ -23,6 +23,9 @@ on:
   schedule:
     - cron: "0 1 * * 1"
 
+env:
+  PATH: /usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin:/usr/local/sbin
+
 jobs:
   # os-check-on-ubuntu-bionic:
   #   runs-on: ubuntu-18.04
@@ -148,10 +151,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python for ROS 2
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
       - name: Run the install script
         run: |
           ./ros2-iron-ros-base-main.sh
@@ -165,10 +164,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python for ROS 2
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
       - name: Run the install script
         run: |
           ./ros2-iron-desktop-main.sh

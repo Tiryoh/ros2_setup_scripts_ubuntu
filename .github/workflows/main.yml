@@ -17,15 +17,17 @@ on:
   schedule:
     - cron: "0 1 * * 1"
 
+env:
+  # Ensure the system Python (/usr/bin/python3) is used instead of
+  # the runner-managed one under /usr/local, which may lack ROS 2
+  # Python dependencies such as catkin_pkg.
+  PATH: /usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin:/usr/local/sbin
+
 jobs:
   humble:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python for ROS 2
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
       - name: Run the install script
         run: |
           sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=humble/g' -i run.sh
@@ -39,10 +41,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python for ROS 2
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
       - name: Run the install script
         run: |
           sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=jazzy/g' -i run.sh
@@ -56,10 +54,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python for ROS 2
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
       - name: Run the install script
         run: |
           sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=kilted/g' -i run.sh
