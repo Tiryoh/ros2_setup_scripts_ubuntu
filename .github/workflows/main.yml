@@ -30,8 +30,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Run the install script
         run: |
-          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=humble/g' -i run.sh
-          ./run.sh
+          ROS_DISTRO=humble ./run.sh
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=humble/g' -i tutorial.sh
@@ -43,8 +42,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Run the install script
         run: |
-          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=jazzy/g' -i run.sh
-          ./run.sh
+          ROS_DISTRO=jazzy ./run.sh
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=jazzy/g' -i tutorial.sh
@@ -56,8 +54,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Run the install script
         run: |
-          sed -e 's/^\(CHOOSE_ROS_DISTRO=.*\)/#\1\nCHOOSE_ROS_DISTRO=kilted/g' -i run.sh
-          ./run.sh
+          ROS_DISTRO=kilted ./run.sh
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=kilted/g' -i tutorial.sh

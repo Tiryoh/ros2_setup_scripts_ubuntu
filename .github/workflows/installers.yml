@@ -4,17 +4,21 @@ on:
     branches:
       - main
     paths:
+      - "run.sh"
       - "ros2-humble-**.sh"
       - "ros2-jazzy-**.sh"
       - "ros2-kilted-**.sh"
+      - ".test/test-run-sh-selection.bats"
       - ".github/workflows/installers.yml"
   pull_request:
     branches:
       - main
     paths:
+      - "run.sh"
       - "ros2-humble-**.sh"
       - "ros2-jazzy-**.sh"
       - "ros2-kilted-**.sh"
+      - ".test/test-run-sh-selection.bats"
       - ".github/workflows/installers.yml"
   schedule:
     - cron: "0 1 * * 1"
@@ -42,6 +46,16 @@ jobs:
       - name: Run bats test
         run: |
           ./.test/bats/bin/bats ./.test/test-os-check-noble.bats
+
+  run-sh-selection:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - name: Run bats test
+        run: |
+          ./.test/bats/bin/bats ./.test/test-run-sh-selection.bats
 
   humble-ros-base-main:
     runs-on: ubuntu-22.04

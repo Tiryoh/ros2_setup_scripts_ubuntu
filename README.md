@@ -10,16 +10,43 @@ ROS 1 version: https://github.com/Tiryoh/ros_setup_scripts_ubuntu
 
 ## QuickStart
 
-After downloading this repository, just run the following command.
+Run the following command.
+
+```sh
+curl -SsfL https://raw.githubusercontent.com/Tiryoh/ros2_setup_scripts_ubuntu/main/run.sh | bash
+```
+
+## Usage
+
+By default, `run.sh` will install the ROS 2 LTS distribution for your Ubuntu version.
+
+| Ubuntu | Default ROS 2 |
+| ------ | ------------- |
+| 18.04 bionic | Dashing |
+| 20.04 focal | Foxy |
+| 22.04 jammy | Humble |
+| 24.04 noble | Jazzy |
+| 26.04 resolute | Lyrical |
+
+If `ROS_DISTRO` is set, `run.sh` will use it instead of the default, but still checks whether it supports your Ubuntu version.
+
+```sh
+curl -SsfL https://raw.githubusercontent.com/Tiryoh/ros2_setup_scripts_ubuntu/main/run.sh | ROS_DISTRO=jazzy bash
+```
+
+By default, `run.sh` installs the `desktop` package. To install `ros-base`, set `INSTALL_PACKAGE`.
+
+```sh
+curl -SsfL https://raw.githubusercontent.com/Tiryoh/ros2_setup_scripts_ubuntu/main/run.sh | INSTALL_PACKAGE=ros-base bash
+```
+
+After downloading this repository, you can also run the same installer locally.
 
 ```sh
 ./run.sh
 ```
 
-## Usage
-
-By default, `run.sh` will install `ros-jazzy-desktop`.   
-If you need to install another package, use indivitual installers listed bellow.
+If you need to run a fixed installer directly, use the individual installers listed below.
 
 ### Individual installers
 
@@ -75,6 +102,7 @@ Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ro
 | Ubuntu 20.04<br>EOL: April 2025[^3] | Noetic<br>EOL: May 2025 | Foxy<br>EOL: May 2023 |
 | Ubuntu 22.04<br>EOL: April 2027[^4] | - | Humble<br>EOL: May 2027 |
 | Ubuntu 24.04<br>EOL: June 2029[^5] | - | Jazzy<br>EOL: May 2029 |
+| Ubuntu 26.04<br>EOL: May 2031[^6] | - | Lyrical<br>EOL: May 2031 |
 
 * Note: Here, EOL for Ubuntu refers to the end of normal support, which is not Ubuntu Pro.
 
@@ -82,6 +110,7 @@ Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ro
 [^3]: https://wiki.ubuntu.com/FocalFossa/ReleaseNotes
 [^4]: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668
 [^5]: https://discourse.ubuntu.com/t/noble-numbat-release-notes/39890
+[^6]: https://documentation.ubuntu.com/project/release-team/list-of-releases/
 
 ## LICENSE
 
