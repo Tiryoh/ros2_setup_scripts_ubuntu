@@ -7,6 +7,7 @@ on:
       - "ros2-humble-**.sh"
       - "ros2-jazzy-**.sh"
       - "ros2-kilted-**.sh"
+      - "ros2-lyrical-**.sh"
       - ".github/workflows/installers.yml"
   pull_request:
     branches:
@@ -15,6 +16,7 @@ on:
       - "ros2-humble-**.sh"
       - "ros2-jazzy-**.sh"
       - "ros2-kilted-**.sh"
+      - "ros2-lyrical-**.sh"
       - ".github/workflows/installers.yml"
   schedule:
     - cron: "0 1 * * 1"
@@ -116,4 +118,51 @@ jobs:
       - name: Run the test script
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=kilted/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  lyrical-ros-base-main:
+    runs-on: ubuntu-24.04
+    container: ubuntu:26.04
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      ROS_DISTRO: lyrical
+    steps:
+      - name: Install container prerequisites
+        run: |
+          apt-get update
+          apt-get install -y ca-certificates git sudo
+      - uses: actions/checkout@v6
+      - name: Run the install script
+        run: |
+          ./ros2-lyrical-ros-base-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=lyrical/g' -i tutorial.sh
+          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
+
+  lyrical-desktop-main:
+    runs-on: ubuntu-24.04
+    container: ubuntu:26.04
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      ROS_DISTRO: lyrical
+    steps:
+      - name: Install container prerequisites
+        run: |
+          apt-get update
+          apt-get install -y ca-certificates git sudo
+      - uses: actions/checkout@v6
+      - name: Run the install script
+        run: |
+          ./ros2-lyrical-desktop-main.sh
+      - name: Run the test script
+        run: |
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=lyrical/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
