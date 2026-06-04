@@ -138,11 +138,11 @@ jobs:
       - name: Run the install script
         run: |
           ./ros2-lyrical-ros-base-main.sh
-      - name: Run smoke test
+      - name: Run the test script
         run: |
-          source /opt/ros/lyrical/setup.bash
-          ros2 pkg prefix rclcpp
-          ros2 interface show std_msgs/msg/String
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=lyrical/g' -i tutorial.sh
+          sed -e 's/^\(source \/opt.*bash\)$/\1\nrosdep install -r -y -i --from-paths ./g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
 
   lyrical-desktop-main:
     runs-on: ubuntu-24.04
@@ -162,8 +162,7 @@ jobs:
       - name: Run the install script
         run: |
           ./ros2-lyrical-desktop-main.sh
-      - name: Run smoke test
+      - name: Run the test script
         run: |
-          source /opt/ros/lyrical/setup.bash
-          ros2 pkg prefix rclcpp
-          ros2 pkg prefix rviz2
+          sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=lyrical/g' -i tutorial.sh
+          bash <(head -n -2 ./tutorial.sh)
