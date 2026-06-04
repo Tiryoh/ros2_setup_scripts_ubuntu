@@ -119,3 +119,51 @@ jobs:
         run: |
           sed -e 's/^\(ROS_DISTRO=.*\)/#\1\nROS_DISTRO=kilted/g' -i tutorial.sh
           bash <(head -n -2 ./tutorial.sh)
+
+  lyrical-ros-base-main:
+    runs-on: ubuntu-24.04
+    container: ubuntu:26.04
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      ROS_DISTRO: lyrical
+    steps:
+      - name: Install container prerequisites
+        run: |
+          apt-get update
+          apt-get install -y ca-certificates git sudo
+      - uses: actions/checkout@v6
+      - name: Run the install script
+        run: |
+          ./ros2-lyrical-ros-base-main.sh
+      - name: Run smoke test
+        run: |
+          source /opt/ros/lyrical/setup.bash
+          ros2 pkg prefix rclcpp
+          ros2 interface show std_msgs/msg/String
+
+  lyrical-desktop-main:
+    runs-on: ubuntu-24.04
+    container: ubuntu:26.04
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      ROS_DISTRO: lyrical
+    steps:
+      - name: Install container prerequisites
+        run: |
+          apt-get update
+          apt-get install -y ca-certificates git sudo
+      - uses: actions/checkout@v6
+      - name: Run the install script
+        run: |
+          ./ros2-lyrical-desktop-main.sh
+      - name: Run smoke test
+        run: |
+          source /opt/ros/lyrical/setup.bash
+          ros2 pkg prefix rclcpp
+          ros2 pkg prefix rviz2
