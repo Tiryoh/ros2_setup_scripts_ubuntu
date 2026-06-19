@@ -30,7 +30,7 @@ jobs:
   # os-check-on-ubuntu-bionic:
   #   runs-on: ubuntu-18.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #       with:
   #         submodules: recursive
   #     - name: Run bats test
@@ -40,7 +40,7 @@ jobs:
   # os-check-on-ubuntu-focal:
   #   runs-on: ubuntu-20.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #       with:
   #         submodules: recursive
   #     - name: Run bats test
@@ -50,7 +50,7 @@ jobs:
   # dashing-ros-base-main:
   #   runs-on: ubuntu-18.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-dashing-ros-base-main.sh
@@ -63,7 +63,7 @@ jobs:
   # dashing-desktop-main:
   #   runs-on: ubuntu-18.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-dashing-desktop-main.sh
@@ -75,7 +75,7 @@ jobs:
   # eloquent-ros-base-main:
   #   runs-on: ubuntu-18.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-eloquent-ros-base-main.sh
@@ -88,7 +88,7 @@ jobs:
   # eloquent-desktop-main:
   #   runs-on: ubuntu-18.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-eloquent-desktop-main.sh
@@ -100,7 +100,7 @@ jobs:
   # foxy-ros-base-main:
   #   runs-on: ubuntu-20.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-foxy-ros-base-main.sh
@@ -113,7 +113,7 @@ jobs:
   # foxy-desktop-main:
   #   runs-on: ubuntu-20.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-foxy-desktop-main.sh
@@ -125,7 +125,7 @@ jobs:
   # galactic-ros-base-main:
   #   runs-on: ubuntu-20.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-galactic-ros-base-main.sh
@@ -138,7 +138,7 @@ jobs:
   # galactic-desktop-main:
   #   runs-on: ubuntu-20.04
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: Run the install script
   #       run: |
   #         ./ros2-galactic-desktop-main.sh
@@ -150,7 +150,7 @@ jobs:
   iron-ros-base-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Run the install script
         run: |
           ./ros2-iron-ros-base-main.sh
@@ -163,7 +163,7 @@ jobs:
   iron-desktop-main:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Run the install script
         run: |
           ./ros2-iron-desktop-main.sh
