@@ -14,7 +14,7 @@ INSTALL_PACKAGE=ros-base
 TARGET_OS=resolute
 
 # Check OS version
-if ! which lsb_release > /dev/null ; then
+if ! command -v lsb_release > /dev/null ; then
 	sudo apt-get update
 	sudo apt-get install -y curl lsb-release
 fi
@@ -43,8 +43,12 @@ sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y universe
 sudo apt-get install -y curl lsb-release build-essential
 
-ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
-curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+ROS_APT_SOURCE_VERSION=$(curl -sSf https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
+if [[ -z "$ROS_APT_SOURCE_VERSION" ]]; then
+	echo "ERROR: Failed to fetch the latest ros-apt-source version." >&2
+	exit 1
+fi
+curl -sSLf -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
 sudo dpkg -i /tmp/ros2-apt-source.deb
 sudo apt-get update
 sudo apt-get install -y ros-$CHOOSE_ROS_DISTRO-$INSTALL_PACKAGE
