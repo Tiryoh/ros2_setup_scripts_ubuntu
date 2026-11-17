@@ -48,8 +48,10 @@ if [[ -z "$ROS_APT_SOURCE_VERSION" ]]; then
 	echo "ERROR: Failed to fetch the latest ros-apt-source version." >&2
 	exit 1
 fi
-curl -sSLf -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
-sudo dpkg -i /tmp/ros2-apt-source.deb
+TMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TMP_DIR"' EXIT
+curl -sSLf -o "$TMP_DIR/ros2-apt-source.deb" "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+sudo dpkg -i "$TMP_DIR/ros2-apt-source.deb"
 sudo apt-get update
 sudo apt-get install -y ros-$CHOOSE_ROS_DISTRO-$INSTALL_PACKAGE
 sudo apt-get install -y python3-argcomplete python3-colcon-clean
