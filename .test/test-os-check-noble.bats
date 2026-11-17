@@ -17,3 +17,9 @@ setup() {
 	[ "$status" -eq 1 ]
 	assert_output --partial "ERROR: This OS (version: noble) is not supported"
 }
+
+@test "Lyrical fail on Ubuntu 24.04" {
+	run ./ros2-lyrical-desktop-main.sh
+	[ "$status" -eq 1 ]
+	assert_output --partial "ERROR: This OS (version: noble) is not supported"
+}

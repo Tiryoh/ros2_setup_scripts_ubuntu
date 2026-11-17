@@ -38,6 +38,11 @@ ROS 2 Kilted
 * To install `ros-kilted-ros-base`, use [`ros2-kilted-ros-base-main.sh`](./ros2-kilted-ros-base-main.sh) instead of `run.sh`.
 * To install `ros-kilted-desktop`, use [`ros2-kilted-desktop-main.sh`](./ros2-kilted-desktop-main.sh) instead of `run.sh`.
 
+ROS 2 Lyrical (LTS)
+
+* To install `ros-lyrical-ros-base`, use [`ros2-lyrical-ros-base-main.sh`](./ros2-lyrical-ros-base-main.sh) instead of `run.sh`.
+* To install `ros-lyrical-desktop`, use [`ros2-lyrical-desktop-main.sh`](./ros2-lyrical-desktop-main.sh) instead of `run.sh`.
+
 #### Old versions
 
 ROS 2 Dashing (EOL)
@@ -75,6 +80,7 @@ Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ro
 | Ubuntu 20.04<br>EOL: April 2025[^3] | Noetic<br>EOL: May 2025 | Foxy<br>EOL: May 2023 |
 | Ubuntu 22.04<br>EOL: April 2027[^4] | - | Humble<br>EOL: May 2027 |
 | Ubuntu 24.04<br>EOL: June 2029[^5] | - | Jazzy<br>EOL: May 2029 |
+| Ubuntu 26.04<br>EOL: May 2031[^6] | - | Lyrical<br>EOL: May 2031 |
 
 * Note: Here, EOL for Ubuntu refers to the end of normal support, which is not Ubuntu Pro.
 
@@ -82,6 +88,7 @@ Reference: [REP-0003](https://ros.org/reps/rep-0003.html), [REP-2000](https://ro
 [^3]: https://wiki.ubuntu.com/FocalFossa/ReleaseNotes
 [^4]: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668
 [^5]: https://discourse.ubuntu.com/t/noble-numbat-release-notes/39890
+[^6]: https://documentation.ubuntu.com/project/release-team/list-of-releases/
 
 ## LICENSE
 
